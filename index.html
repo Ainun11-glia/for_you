@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* STYLE TAMBAHAN UNTUK GERBANG PASSWORD */
+        body { background-color: #0b0c10; margin: 0; overflow-x: hidden; }
+        .hidden { display: none !important; }
+        
+        #gate-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            z-index: 999;
+        }
+
+        .input-gate {
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #ffc0cb;
+            background: transparent;
+            color: white;
+            text-align: center;
+            margin-bottom: 15px;
+            width: 220px;
+        }
+
+        .btn-gate {
+            padding: 10px 25px;
+            border-radius: 8px;
+            border: none;
+            background-color: #ffc0cb;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* ANIMASI BINTANG JATUH */
+        .shooting-star {
+            position: absolute;
+            top: 0; right: 0;
+            width: 4px; height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ffc0cb;
+            animation: shoot 1.5s linear infinite;
+        }
+        .shooting-star::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 150px; height: 1px;
+            background: linear-gradient(90deg, #ffc0cb, transparent);
+        }
+        @keyframes shoot {
+            0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 1; }
+            100% { transform: translateX(-1000px) translateY(1000px) rotate(-45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="gate-container">
+        <div id="login-form">
+            <h3>Membutuhkan Akses</h3>
+            <input type="password" id="pass-input" class="input-gate" placeholder="Masukkan Password...">
+            <br>
+            <button onclick="verifikasi()" class="btn-gate">Verifikasi</button>
+        </div>
+
+        <div id="success-step" class="hidden">
+            <div class="shooting-star"></div>
+            <h2 style="color: #ffc0cb;">Akses Diterima!</h2>
+            <p>Bintang jatuh ini saksinya...</p>
+            <button onclick="bukaKejutanUtama()" class="btn-gate">you are the owner, click here</button>
+        </div>
+    </div>
+
+    <div id="main-web-content" class="hidden">
+        <audio id="bgm" src="gitar.mp3" loop></audio>
+
+        <section id="page1" class="active">
+            <div id="hujan-bunga"></div>
+            <div class="content centered">
+                <h1 class="fade-in title-pink">Happy Birthday, ngel!</h1>
+                <p class="fade-in delay text-pink">Semoga semua impianmu terwujud di tahun ini, mungkin kita bakal jarang ketemu tapi yang pasti aku akan selalu ada buat kamu.</p>
+                <button onclick="bukaKejutanKeBubub()" class="btn-pink">Buka Kejutan ✨</button>
+            </div>
+        </section>
+
+        <section id="page2">
+            <div class="stars"></div>
+            <img src="saturnus.png" class="saturn-bg" alt="Background Saturnus">
+            <div class="content centered">
+                <p id="teks-ngetik" class="special-msg"></p>
+                <button id="btn-page2" onclick="nextPage(3)" class="btn-space hidden">Next Journey 🌻</button>
+            </div>
+        </section>
+
+        <section id="page3">
+            <div id="bunga-container" class="sunflower-box centered">
+                <img src="sunflower.jpg" id="bunga-matahari" class="flower-bloom" alt="Bunga Matahari">
+                <p class="text-kuning">Bunga matahari ini mekar untuk kamu...</p>
+            </div>
+
+            <div id="photo-slide" class="hidden">
+                <div class="photo-frame img1"><img src="foto1.jpeg" alt="Foto 1"></div>
+                <div class="photo-frame img2"><img src="foto2.jpeg" alt="Foto 2"></div>
+                <div class="photo-frame img3"><img src="foto3.jpeg" alt="Foto 3"></div>
+                <h1 class="handwriting text-kuning">Happy Birthday, Angel</h1>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function verifikasi() {
+            let p = document.getElementById("pass-input").value.toLowerCase();
+            if(p === "saturnus") {
+                document.getElementById("login-form").classList.add("hidden");
+                document.getElementById("success-step").classList.remove("hidden");
+            } else {
+                alert("Akses Ditolak! Kamu bukan pemilik Saturnus ini.");
+            }
+        }
+
+        function bukaKejutanUtama() {
+            // Cuma munculin konten, belum muter lagu biar sunyi dulu
+            document.getElementById("gate-container").classList.add("hidden");
+            document.getElementById("main-web-content").classList.remove("hidden");
+        }
+
+        function bukaKejutanKeBubub() {
+            // Audio gitar baru mulai di sini
+            let musik = document.getElementById("bgm");
+            musik.play();
+            
+            // Pindah ke Page 2 (Fungsi dari script.js lu)
+            nextPage(2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
+
+.centered { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100vh; z-index: 10; position: relative; padding: 0 20px; }
+section { position: fixed; width: 100%; height: 100vh; transition: transform 0.8s ease-in-out; transform: translateX(100%); }
+section.active { transform: translateX(0); }
+
+/* --- LAMAN 1: PINK --- */
+#page1 { background: #fff0f5; }
+.title-pink { color: #d81b60; margin-bottom: 10px; font-size: 2.2rem; }
+.text-pink { color: #c2185b; font-size: 1.1rem; line-height: 1.5; margin-bottom: 30px; font-weight: bold; }
+.btn-pink { background: #ff69b4; color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(255,105,180,0.4); }
+
+#hujan-bunga { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1; pointer-events: none; }
+.bunga-jatuh { position: absolute; font-size: 20px; animation: jatuh linear infinite; }
+@keyframes jatuh { to { transform: translateY(110vh) rotate(360deg); } }
+
+/* --- LAMAN 2: SATURNUS & EFEK KURSOR NGETIK --- */
+#page2 { background: #0b0d17; overflow: hidden; }
+.saturn-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200vw; opacity: 0.25; animation: spinBg 120s linear infinite; z-index: 0; }
+@keyframes spinBg { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+.special-msg { color: white; font-style: italic; line-height: 1.8; font-size: 1.2rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); margin-bottom: 30px; min-height: 100px; }
+.btn-space { background: transparent; color: white; border: 2px solid white; padding: 10px 25px; border-radius: 25px; font-weight: bold; cursor: pointer; backdrop-filter: blur(5px); margin-top: 20px;}
+
+.typing-cursor::after { content: '|'; animation: blink 0.7s infinite; color: white; font-weight: bold; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* --- LAMAN 3: KUNING, MEKAR REALISTIS & FIGURA KAYU --- */
+#page3 { background: #fffde7; overflow-y: auto; display: block; }
+.text-kuning { color: #fbc02d; font-weight: bold; margin-top: 15px; }
+
+/* Animasi Bunga Matahari Realistis */
+.flower-bloom { 
+    width: 250px; /* Ukuran gambar bunga */
+    opacity: 0; 
+    transform: scale(0.3) rotate(-15deg); /* Mulai dari kecil dan agak miring */
+    filter: blur(10px); /* Efek blur saat masih kuncup/belum mekar */
+    transition: all 3.5s cubic-bezier(0.25, 1, 0.5, 1); /* Mekar perlahan dan natural */
+    margin-bottom: 20px;
+}
+.flower-bloom.mekar { 
+    opacity: 1; 
+    transform: scale(1) rotate(0deg); /* Membesar ke ukuran normal */
+    filter: blur(0px); /* Jelas sempurna */
+}
+
+#photo-slide { padding: 40px 20px; text-align: center; }
+.photo-frame { background: #8B5A2B; padding: 12px 12px 30px 12px; border-radius: 4px; box-shadow: 5px 8px 15px rgba(0,0,0,0.4); margin-bottom: 50px; width: 85%; margin-left: auto; margin-right: auto; border: 1px solid #5c3a21; }
+.photo-frame img { width: 100%; display: block; border: 3px solid #3d2616; }
+.img1 { transform: rotate(-5deg); }
+.img2 { transform: rotate(4deg); }
+.img3 { transform: rotate(-6deg); }
+
+.handwriting { font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-top: 20px; padding-bottom: 60px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.hidden { display: none; }
