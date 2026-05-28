@@ -1,4 +1,13 @@
- * { margin: 0; padding: 0; box-sizing: border-box; }
+/* TAMENG ANTI MODE GELAP: Maksa browser pakai skema warna asli desain lu */
+:root {
+    color-scheme: light;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
+/* ... Sisa kode CSS lu ke bawahnya biarkan tetep sama ... */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
 
 .centered { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100vh; z-index: 10; position: relative; padding: 0 20px; }
