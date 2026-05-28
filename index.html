@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="color-scheme" content="light">
+    
     <title>For You</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* STYLE TAMBAHAN UNTUK GERBANG PASSWORD */
         body { background-color: #0b0c10; margin: 0; overflow-x: hidden; }
         .hidden { display: none !important; }
-        
+
         #gate-container {
             height: 100vh;
             display: flex;
@@ -44,7 +46,6 @@
             transition: 0.3s;
         }
 
-        /* ANIMASI BINTANG JATUH */
         .shooting-star {
             position: absolute;
             top: 0; right: 0;
@@ -91,7 +92,7 @@
         <section id="page1" class="active">
             <div id="hujan-bunga"></div>
             <div class="content centered">
-                <h1 class="fade-in title-pink">Happy Birthday, ngel!</h1>
+                <h1 class="fade-in title-pink">Happy Birthday ngel!</h1>
                 <p class="fade-in delay text-pink">Semoga semua impianmu terwujud di tahun ini, mungkin kita bakal jarang ketemu tapi yang pasti aku akan selalu ada buat kamu.</p>
                 <button onclick="bukaKejutanKeBubub()" class="btn-pink">Buka Kejutan ✨</button>
             </div>
@@ -134,19 +135,16 @@
         }
 
         function bukaKejutanUtama() {
-            // Cuma munculin konten, belum muter lagu biar sunyi dulu
             document.getElementById("gate-container").classList.add("hidden");
             document.getElementById("main-web-content").classList.remove("hidden");
         }
 
         function bukaKejutanKeBubub() {
-            // Audio gitar baru mulai di sini
             let musik = document.getElementById("bgm");
             musik.play();
-            
-            // Pindah ke Page 2 (Fungsi dari script.js lu)
             nextPage(2);
         }
     </script>
 </body>
-</html>
+    </html>
+        
