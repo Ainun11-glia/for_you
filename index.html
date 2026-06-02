@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta name="color-scheme" content="light">
-    
     <title>For You</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { background-color: #0b0c10; margin: 0; overflow-x: hidden; }
         .hidden { display: none !important; }
@@ -114,12 +112,24 @@
             </div>
 
             <div id="photo-slide" class="hidden">
-                <div class="photo-frame img1"><img src="foto1.jpeg" alt="Foto 1"></div>
-                <div class="photo-frame img2"><img src="foto2.jpeg" alt="Foto 2"></div>
-                <div class="photo-frame img3"><img src="foto3.jpeg" alt="Foto 3"></div>
+                <p style="color: #fbc02d; font-size: 0.9rem; margin-bottom: 20px; font-weight: bold;">✨ Coba klik fotonya deh ✨</p>
+                
+                <!-- Ditambahkan fungsi onclick di setiap frame foto -->
+                <div class="photo-frame img1" onclick="bukaMemori(1)"><img src="foto1.jpeg" alt="Foto 1"></div>
+                <div class="photo-frame img2" onclick="bukaMemori(2)"><img src="foto2.jpeg" alt="Foto 2"></div>
+                <div class="photo-frame img3" onclick="bukaMemori(3)"><img src="foto3.jpeg" alt="Foto 3"></div>
+                
                 <h1 class="handwriting text-kuning">Happy Birthday, Angel</h1>
             </div>
         </section>
+    </div>
+
+    <!-- STRUKTUR MODAL BOX INTERAKTIF BARU -->
+    <div id="memori-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <p id="teks-memori" class="typing-cursor"></p>
+            <button id="btn-close-modal" onclick="tutupMemori()" class="btn-close hidden">Close Memory 🌻</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
@@ -146,4 +156,4 @@
         }
     </script>
 </body>
-    </html>
+</html>
