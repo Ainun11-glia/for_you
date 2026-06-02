@@ -1,11 +1,7 @@
-/* TAMENG ANTI MODE GELAP: Maksa browser pakai skema warna asli desain lu */
+/* TAMENG MODE GELAP DI CSS */
 :root {
     color-scheme: light;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
-/* ... Sisa kode CSS lu ke bawahnya biarkan tetep sama ... */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
@@ -14,7 +10,6 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: h
 section { position: fixed; width: 100%; height: 100vh; transition: transform 0.8s ease-in-out; transform: translateX(100%); }
 section.active { transform: translateX(0); }
 
-/* --- LAMAN 1: PINK --- */
 #page1 { background: #fff0f5; }
 .title-pink { color: #d81b60; margin-bottom: 10px; font-size: 2.2rem; }
 .text-pink { color: #c2185b; font-size: 1.1rem; line-height: 1.5; margin-bottom: 30px; font-weight: bold; }
@@ -24,7 +19,6 @@ section.active { transform: translateX(0); }
 .bunga-jatuh { position: absolute; font-size: 20px; animation: jatuh linear infinite; }
 @keyframes jatuh { to { transform: translateY(110vh) rotate(360deg); } }
 
-/* --- LAMAN 2: SATURNUS & EFEK KURSOR NGETIK --- */
 #page2 { background: #0b0d17; overflow: hidden; }
 .saturn-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200vw; opacity: 0.25; animation: spinBg 120s linear infinite; z-index: 0; }
 @keyframes spinBg { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
@@ -34,31 +28,86 @@ section.active { transform: translateX(0); }
 .typing-cursor::after { content: '|'; animation: blink 0.7s infinite; color: white; font-weight: bold; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-/* --- LAMAN 3: KUNING, MEKAR REALISTIS & FIGURA KAYU --- */
 #page3 { background: #fffde7; overflow-y: auto; display: block; }
 .text-kuning { color: #fbc02d; font-weight: bold; margin-top: 15px; }
 
-/* Animasi Bunga Matahari Realistis */
 .flower-bloom { 
-    width: 250px; /* Ukuran gambar bunga */
+    width: 250px;
     opacity: 0; 
-    transform: scale(0.3) rotate(-15deg); /* Mulai dari kecil dan agak miring */
-    filter: blur(10px); /* Efek blur saat masih kuncup/belum mekar */
-    transition: all 3.5s cubic-bezier(0.25, 1, 0.5, 1); /* Mekar perlahan dan natural */
+    transform: scale(0.3) rotate(-15deg); 
+    filter: blur(10px);
+    transition: all 3.5s cubic-bezier(0.25, 1, 0.5, 1);
     margin-bottom: 20px;
 }
 .flower-bloom.mekar { 
     opacity: 1; 
-    transform: scale(1) rotate(0deg); /* Membesar ke ukuran normal */
-    filter: blur(0px); /* Jelas sempurna */
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
 }
 
 #photo-slide { padding: 40px 20px; text-align: center; }
-.photo-frame { background: #8B5A2B; padding: 12px 12px 30px 12px; border-radius: 4px; box-shadow: 5px 8px 15px rgba(0,0,0,0.4); margin-bottom: 50px; width: 85%; margin-left: auto; margin-right: auto; border: 1px solid #5c3a21; }
+.photo-frame { background: #8B5A2B; padding: 12px 12px 30px 12px; border-radius: 4px; box-shadow: 5px 8px 15px rgba(0,0,0,0.4); margin-bottom: 50px; width: 85%; margin-left: auto; margin-right: auto; border: 1px solid #5c3a21; cursor: pointer; transition: 0.3s; }
+.photo-frame:hover { transform: scale(1.03) !important; filter: brightness(1.1); }
 .photo-frame img { width: 100%; display: block; border: 3px solid #3d2616; }
 .img1 { transform: rotate(-5deg); }
 .img2 { transform: rotate(4deg); }
 .img3 { transform: rotate(-6deg); }
 
 .handwriting { font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-top: 20px; padding-bottom: 60px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-.hidden { display: none; }
+.hidden { display: none !important; }
+
+/* CSS BARU: MODAL OVERLAY BOX INTERAKTIF */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #fff0f3;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(216, 27, 96, 0.3);
+    border: 2px solid #ff69b4;
+    font-family: 'Poppins', sans-serif;
+}
+
+#teks-memori {
+    color: #c2185b;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 600;
+    margin-bottom: 20px;
+    min-height: 60px;
+    text-align: left;
+}
+
+/* Modifikasi cursor kustom khusus untuk teks modal berwarna pink gelap */
+.modal-content .typing-cursor::after {
+    color: #c2185b;
+}
+
+.btn-close {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255,105,180,0.3);
+    transition: 0.2s;
+}
+.btn-close:hover {
+    background: #d81b60;
+}
