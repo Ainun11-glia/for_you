@@ -29,7 +29,35 @@ section.active { transform: translateX(0); }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 #page3 { background: #fffde7; overflow-y: auto; display: block; }
-.text-kuning { color: #fbc02d; font-weight: bold; margin-top: 15px; }
+
+/* FIX TAKTIS: Kontainer slide foto di-setting biar bisa ngedorong konten ke paling bawah */
+#photo-slide { 
+    padding: 40px 20px; 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%; 
+}
+
+/* KEMBALI KE SETELAN PABRIK: Teks bunga matahari lu dijamin aman & gak bakal bergeser! */
+.text-kuning { 
+    color: #fbc02d; 
+    font-weight: bold; 
+    margin-top: 15px; 
+}
+
+/* KELAS KUSTOM BARU: Khusus memaksa tulisan petunjuk klik foto terjun bebas ke bawah pol */
+.text-petunjuk-bawah { 
+    color: #fbc02d; 
+    font-weight: bold; 
+    margin-top: auto; /* Maksa mentok ke dasar layar HP */
+    padding-top: 40px; 
+    padding-bottom: 25px; 
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    width: 100%;
+}
 
 .flower-bloom { 
     width: 250px;
@@ -45,7 +73,6 @@ section.active { transform: translateX(0); }
     filter: blur(0px);
 }
 
-#photo-slide { padding: 40px 20px; text-align: center; }
 .photo-frame { background: #8B5A2B; padding: 12px 12px 30px 12px; border-radius: 4px; box-shadow: 5px 8px 15px rgba(0,0,0,0.4); margin-bottom: 50px; width: 85%; margin-left: auto; margin-right: auto; border: 1px solid #5c3a21; cursor: pointer; transition: 0.3s; }
 .photo-frame:hover { transform: scale(1.03) !important; filter: brightness(1.1); }
 .photo-frame img { width: 100%; display: block; border: 3px solid #3d2616; }
@@ -53,10 +80,10 @@ section.active { transform: translateX(0); }
 .img2 { transform: rotate(4deg); }
 .img3 { transform: rotate(-6deg); }
 
-.handwriting { font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-top: 20px; padding-bottom: 60px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.handwriting { font-family: 'Dancing Script', cursive; font-size: 3.5rem; margin-top: 20px; padding-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
 .hidden { display: none !important; }
 
-/* CSS BARU: MODAL OVERLAY BOX INTERAKTIF */
+/* CSS MODAL OVERLAY BOX INTERAKTIF */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0;
@@ -92,7 +119,6 @@ section.active { transform: translateX(0); }
     text-align: left;
 }
 
-/* Modifikasi cursor kustom khusus untuk teks modal berwarna pink gelap */
 .modal-content .typing-cursor::after {
     color: #c2185b;
 }
