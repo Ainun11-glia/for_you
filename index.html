@@ -73,6 +73,7 @@
             <h3>Membutuhkan Akses</h3>
             <input type="password" id="pass-input" class="input-gate" placeholder="Masukkan Password...">
             <br>
+            <br>
             <button onclick="verifikasi()" class="btn-gate">Verifikasi</button>
         </div>
 
@@ -106,25 +107,28 @@
         </section>
 
         <section id="page3">
+            <!-- AMAN SENYAP: Teks bunga matahari dikunci pakai kelas aslinya, gak bakal geser! -->
             <div id="bunga-container" class="sunflower-box centered">
                 <img src="sunflower.jpg" id="bunga-matahari" class="flower-bloom" alt="Bunga Matahari">
                 <p class="text-kuning">Bunga matahari ini mekar untuk kamu...</p>
             </div>
 
             <div id="photo-slide" class="hidden">
-                <p style="color: #fbc02d; font-size: 0.9rem; margin-bottom: 20px; font-weight: bold;">✨ Coba klik fotonya deh ✨</p>
-                
-                <!-- Ditambahkan fungsi onclick di setiap frame foto -->
+                <!-- Frame Foto Interaktif -->
                 <div class="photo-frame img1" onclick="bukaMemori(1)"><img src="foto1.jpeg" alt="Foto 1"></div>
                 <div class="photo-frame img2" onclick="bukaMemori(2)"><img src="foto2.jpeg" alt="Foto 2"></div>
                 <div class="photo-frame img3" onclick="bukaMemori(3)"><img src="foto3.jpeg" alt="Foto 3"></div>
                 
+                <!-- Judul Estetik -->
                 <h1 class="handwriting text-kuning">Happy Birthday, Angel</h1>
+
+                <!-- KELAS BARU: Dipisah biar gak ngerusak posisi teks bunga matahari! -->
+                <p class="text-petunjuk-bawah">coba klik fotonya</p>
             </div>
         </section>
     </div>
 
-    <!-- STRUKTUR MODAL BOX INTERAKTIF BARU -->
+    <!-- STRUKTUR MODAL BOX INTERAKTIF -->
     <div id="memori-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <p id="teks-memori" class="typing-cursor"></p>
@@ -156,4 +160,5 @@
         }
     </script>
 </body>
-</html>
+    </html>
+                                     
